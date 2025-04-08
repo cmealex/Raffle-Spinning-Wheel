@@ -52,25 +52,16 @@ class RaffleWheel {
 
     // Draw arrow
     drawArrow() {
+        // Calculate arrow position - now attached to the wheel edge
+        const arrowRadius = this.wheelRadius; // Position at the edge of the wheel
         const arrowX = this.centerX;
-        const arrowY = this.centerY - this.wheelRadius - 30;
+        const arrowY = this.centerY - arrowRadius;
         
-        // Arrow body
+        // Draw only a triangle arrow
         this.ctx.beginPath();
-        this.ctx.moveTo(arrowX - 15, arrowY);
-        this.ctx.lineTo(arrowX + 15, arrowY);
-        this.ctx.lineTo(arrowX + 15, arrowY + 30);
-        this.ctx.lineTo(arrowX - 15, arrowY + 30);
-        this.ctx.closePath();
-        this.ctx.fillStyle = '#e74c3c';
-        this.ctx.fill();
-        this.ctx.stroke();
-        
-        // Arrow head
-        this.ctx.beginPath();
-        this.ctx.moveTo(arrowX, arrowY - 15);
-        this.ctx.lineTo(arrowX + 15, arrowY);
-        this.ctx.lineTo(arrowX - 15, arrowY);
+        this.ctx.moveTo(arrowX, arrowY + 10); // Bottom point
+        this.ctx.lineTo(arrowX + 8, arrowY); // Right point
+        this.ctx.lineTo(arrowX - 8, arrowY); // Left point
         this.ctx.closePath();
         this.ctx.fillStyle = '#e74c3c';
         this.ctx.fill();
