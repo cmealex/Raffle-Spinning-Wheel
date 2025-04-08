@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raffle Spinning Wheel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Raffle Spinning Wheel</h1>
+        
+        <div class="input-section">
+            <div class="input-group">
+                <label for="extractions">Number of Extractions:</label>
+                <input type="number" id="extractions" min="1" value="1">
+            </div>
+            
+            <div class="input-group">
+                <label for="manualNames">Enter names (one per line):</label>
+                <textarea id="manualNames" rows="5" placeholder="Enter names here, one per line"></textarea>
+                <div class="help-text">
+                    <p>This is the most reliable way to use the raffle wheel.</p>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label for="sheetLink">Or enter your Google Sheet link:</label>
+                <input type="text" id="sheetLink" placeholder="https://docs.google.com/spreadsheets/d/..." value="https://docs.google.com/spreadsheets/d/1IvnYUV4PRqhY6abs_62Wt2chAWr6gGhr4qPbdssmKYY/edit?usp=sharing">
+                <div class="help-text">
+                    <a href="#" id="showHelp">How to set up your Google Sheet</a>
+                </div>
+            </div>
+            
+            <button id="startRaffle">Start Raffle</button>
+        </div>
+
+        <div id="helpModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>How to Set Up Your Google Sheet</h2>
+                <ol>
+                    <li>Create a new Google Sheet</li>
+                    <li>Add names in the first column (A)</li>
+                    <li>Click the "Share" button in the top right</li>
+                    <li>Change access to "Anyone with the link"</li>
+                    <li>Make sure the permission is set to "Viewer"</li>
+                    <li>Copy the link and paste it in the input field above</li>
+                </ol>
+                <p><strong>Note:</strong> The sheet must be publicly accessible for the raffle wheel to work.</p>
+                <p><strong>Important:</strong> Due to browser security restrictions, the Google Sheets integration may not work. If this happens, please use the manual input option above to enter names directly.</p>
+                <p><strong>Recommended:</strong> For the most reliable experience, use the manual input option above.</p>
+            </div>
+        </div>
+
+        <div class="wheel-container">
+            <canvas id="wheel"></canvas>
+        </div>
+
+        <div class="results-section">
+            <h2>Winners</h2>
+            <ul id="winnersList"></ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
